@@ -1,0 +1,288 @@
+/* Main Container */
+.wpqc-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999;
+}
+
+/* Toggle Button */
+.wpqc-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #FF5722;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Pulse Effect */
+.wpqc-toggle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: #FF5722;
+    animation: wpqc-pulse 1.5s ease-out infinite;
+    z-index: -1;
+}
+
+@keyframes wpqc-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* Toggle Icons */
+.wpqc-toggle .toggle-open,
+.wpqc-toggle .toggle-close {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    fill: #FFFFFF;
+}
+
+.wpqc-toggle .toggle-close {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(-180deg);
+}
+
+.wpqc-container.active .toggle-open {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotate(180deg);
+}
+
+.wpqc-container.active .toggle-close {
+    opacity: 1;
+    visibility: visible;
+    transform: rotate(0);
+}
+
+/* Stop pulse when active */
+.wpqc-container.active .wpqc-toggle::after {
+    animation: none;
+    opacity: 0;
+}
+
+/* Buttons Container/Popup */
+.wpqc-buttons {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.2s ease;
+    transform-origin: bottom right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Active state for buttons container */
+.wpqc-container.active .wpqc-buttons {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+/* Individual Button */
+.wpqc-button {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    gap: 12px;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 48px;
+}
+
+/* Button hover effect */
+.wpqc-button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Button Icon */
+.wpqc-button svg {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: block;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+/* Button Label */
+.wpqc-button-label {
+    color: #333;
+    font-size: 14px;
+    font-weight: normal;
+    flex-grow: 1;
+}
+
+/* Social Icons Colors */
+.wpqc-button[data-type="whatsapp"] svg {
+    fill: #25D366;
+}
+
+.wpqc-button[data-type="viber"] svg {
+    fill: #665CAC;
+}
+
+.wpqc-button[data-type="line"] svg {
+    fill: #00B900;
+}
+
+.wpqc-button[data-type="discord"] svg {
+    fill: #5865F2;
+}
+
+.wpqc-button[data-type="zalo"] svg {
+    fill: #0068ff;
+}
+
+.wpqc-button[data-type="telegram"] svg {
+    fill: #2AABEE;
+}
+
+.wpqc-button[data-type="messenger"] svg {
+    fill: #0084FF;
+}
+
+.wpqc-button[data-type="phone"] svg {
+    fill: #FF0000;
+}
+
+/* Custom icon styles */
+.wpqc-button[data-type="custom"] svg {
+    fill: currentColor;
+}
+
+/* Animation for buttons appearance */
+.wpqc-container.active .wpqc-button {
+    animation: buttonSlideIn 0.3s ease forwards;
+    opacity: 0;
+}
+
+@keyframes buttonSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger delay for buttons */
+.wpqc-container.active .wpqc-button:nth-child(1) { animation-delay: 0.1s; }
+.wpqc-container.active .wpqc-button:nth-child(2) { animation-delay: 0.15s; }
+.wpqc-container.active .wpqc-button:nth-child(3) { animation-delay: 0.2s; }
+.wpqc-container.active .wpqc-button:nth-child(4) { animation-delay: 0.25s; }
+.wpqc-container.active .wpqc-button:nth-child(5) { animation-delay: 0.3s; }
+.wpqc-container.active .wpqc-button:nth-child(6) { animation-delay: 0.35s; }
+.wpqc-container.active .wpqc-button:nth-child(7) { animation-delay: 0.4s; }
+.wpqc-container.active .wpqc-button:nth-child(8) { animation-delay: 0.45s; }
+.wpqc-container.active .wpqc-button:nth-child(9) { animation-delay: 0.5s; }
+.wpqc-container.active .wpqc-button:nth-child(10) { animation-delay: 0.55s; }
+
+/* Reset animations when closing */
+.wpqc-container:not(.active) .wpqc-button {
+    animation: none;
+    transition: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .wpqc-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .wpqc-toggle {
+        width: 45px;
+        height: 45px;
+    }
+
+    .wpqc-toggle svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .wpqc-buttons {
+        min-width: 180px;
+        bottom: 55px;
+    }
+
+    .wpqc-button {
+        padding: 6px 8px;
+    }
+
+    .wpqc-button svg {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+    }
+
+    .wpqc-button-label {
+        font-size: 13px;
+    }
+}
+
+/* Fix popup position when near screen edges */
+@media (max-width: 480px) {
+    .wpqc-buttons {
+        right: 0;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    .wpqc-button {
+        outline: 2px solid #000;
+    }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .wpqc-toggle,
+    .wpqc-buttons,
+    .wpqc-button,
+    .wpqc-toggle::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

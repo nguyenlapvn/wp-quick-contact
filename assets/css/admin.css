@@ -1,0 +1,237 @@
+/* Container Styles */
+.wpqc-admin-container {
+    margin: 20px 0;
+    max-width: 800px;
+}
+
+.wpqc-buttons-container {
+    margin-bottom: 20px;
+}
+
+/* Button Item Styles */
+.wpqc-button-item {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+.wpqc-button-header {
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #ccd0d4;
+    display: flex;
+    align-items: center;
+    cursor: move;
+}
+
+.wpqc-button-move {
+    margin-right: 10px;
+    color: #666;
+    cursor: move;
+}
+
+.wpqc-button-title {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.wpqc-button-delete {
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.wpqc-button-content {
+    padding: 15px;
+}
+
+/* Form Field Styles */
+.wpqc-field-row {
+    margin-bottom: 15px;
+}
+
+.wpqc-field-row:last-child {
+    margin-bottom: 0;
+}
+
+.wpqc-field-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.wpqc-field-row input[type="text"],
+.wpqc-field-row input[type="url"],
+.wpqc-field-row select,
+.wpqc-field-row textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+.wpqc-field-row textarea {
+    min-height: 100px;
+    font-family: monospace;
+}
+
+.wpqc-field-error {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.wpqc-custom-svg-field {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+/* Submit Container */
+.wpqc-submit-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wpqc-submit-container .spinner {
+    float: none;
+    margin: 0;
+}
+
+/* Notification System */
+.wpqc-notice-overlay {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    z-index: 99999;
+}
+
+.wpqc-notice {
+    background: #fff;
+    border-left: 4px solid #72aee6;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    margin: 5px 0;
+    padding: 12px;
+    position: relative;
+    min-width: 200px;
+    animation: slideInRight 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wpqc-notice.success {
+    border-left-color: #00a32a;
+}
+
+.wpqc-notice.error {
+    border-left-color: #d63638;
+}
+
+.wpqc-notice-message {
+    margin-right: 20px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.wpqc-notice-close {
+    color: #999;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.wpqc-notice-close:hover {
+    color: #666;
+}
+
+/* Drag and Drop Styles */
+.wpqc-button-item.dragging {
+    opacity: 0.5;
+    position: relative;
+    z-index: 1000;
+}
+
+.wpqc-button-item.drag-over {
+    border-top: 2px solid #0073aa;
+}
+
+/* Invalid Field Styles */
+.wpqc-field-row input.invalid,
+.wpqc-field-row textarea.invalid {
+    border-color: #dc3545;
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 782px) {
+    .wpqc-field-row input[type="text"],
+    .wpqc-field-row input[type="url"],
+    .wpqc-field-row select {
+        min-height: 40px;
+    }
+
+    .wpqc-notice {
+        margin: 5px 10px;
+    }
+}
+
+/* WordPress Admin Theme Compatibility */
+.wp-core-ui .wpqc-button-item select {
+    max-width: 100%;
+}
+
+.wp-core-ui .wpqc-submit-container .button {
+    margin-right: 10px;
+}
+
+/* Description Text */
+.wpqc-field-row .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Custom SVG Preview */
+.wpqc-svg-preview {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wpqc-svg-preview svg {
+    width: 24px;
+    height: 24px;
+}
+
